@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#d32f2f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<title>Recetario de Hallacas - La Giralda | Memorias de Navidad</title>
+
+<!-- ============================================= -->
+<!-- GOOGLE ANALYTICS 4 (GA4)                      -->
+<!-- Reemplaza G-XXXXXXXXXX con tu ID real         -->
+<!-- ============================================= -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX', {
+    page_title: 'Recetario Hallacas La Giralda',
+    page_location: window.location.href
+  });
+</script>
+
+<!-- ============================================= -->
+<!-- META PIXEL (Facebook / Instagram Ads)         -->
+<!-- Reemplaza PIXEL_ID con tu ID real             -->
+<!-- ============================================= -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'PIXEL_ID');
+  fbq('track', 'PageView');
+</script>
+
+<!-- ============================================= -->
+<!-- LECTURA DE UTM Y EVENTOS DE ANALYTICS         -->
+<!-- ============================================= -->
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const utmSource   = urlParams.get('utm_source')   || 'qr';
+  const utmMedium   = urlParams.get('utm_medium')   || 'fisico';
+  const utmCampaign = urlParams.get('utm_campaign') || 'navidad2026';
+  const utmContent  = urlParams.get('utm_content')  || 'general';
+
+  sessionStorage.setItem('utm_source',   utmSource);
+  sessionStorage.setItem('utm_medium',   utmMedium);
+  sessionStorage.setItem('utm_campaign', utmCampaign);
+  sessionStorage.setItem('utm_content',  utmContent);
+
+  window.addEventListener('load', function() {
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', 'qr_scan', {
+          'event_category': 'Adquisicion',
+          'event_label': utmContent,
+          'source': utmSource,
+          'medium': utmMedium,
+          'campaign': utmCampaign,
+          'content': utmContent,
+          'value': 1
+        });
+      }
+    } catch(e) { console.warn('GA QR Error:', e); }
+
+    try {
+      if (typeof fbq === 'function') {
+        fbq('trackCustom', 'QRScan', {
+          source: utmSource,
+          medium: utmMedium,
+          campaign: utmCampaign,
+          content: utmContent
+        });
+      }
+    } catch(e) { console.warn('Pixel QR Error:', e); }
+  });
+</script>
+
+<style>
+:root {
+  --primary-color: #d32f2f;
+  --secondary-color: #2e7d32;
+  --accent-color: #fbc02d;
+  --bg-color: #f4f6f9;
+  --card-bg: #ffffff;
+  --text-color: #2c3e50;
+  --border-color: #e0e0e0;
+}
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.container {
+  max-width: 850px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* Banner corporativo */
+.banner-container {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+.banner-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+/* Pestañas / Tabs Responsivas */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--border-color);
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px;
+}
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+.tab-btn {
+  flex: 1 0 auto;
+  padding: 12px 16px;
+  border: none;
+  background: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #7f8c8d;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-height: 44px;
+}
+.tab-btn.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+.tab-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+h2 {
+  color: #1a252f;
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+p.subtitle {
+  color: #7f8c8d;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* Grid Responsiva de Botones (Chips) */
+.chips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+.chip {
+  padding: 14px 10px;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  background: #fff;
+  color: #34495e;
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chip:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+.chip.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
+}
+
+/* Botones de Acción Principal */
+.btn-action {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.2);
+  min-height: 48px;
+}
+.btn-action:hover:not(:disabled) {
+  background-color: #b71c1c;
+  transform: translateY(-1px);
+}
+.btn-action:disabled {
+  background-color: #bdc3c7;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Tarjetas de Ingredientes */
+.category-card {
+  background: #ffffff;
+  border: 1px solid #eef2f5;
+  border-left: 5px solid var(--secondary-color);
+  padding: 18px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.category-header {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ingredient-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ingredient-item {
+  padding: 8px 0;
+  border-bottom: 1px dashed #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  line-height: 1.4;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.ingredient-item:last-child {
+  border-bottom: none;
+}
+
+/* Logo La Giralda en ingredientes */
+.logo-giralda {
+  height: 20px;
+  width: auto;
+  margin-left: 8px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.share-btn {
+  width: 100%;
+  padding: 16px;
+  background-color: #25D366;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+  transition: background 0.3s ease;
+  min-height: 48px;
+}
+.share-btn:hover {
+  background-color: #1ebd56;
+}
+
+/* Bloques de la Receta Paso a Paso */
+.recipe-step {
+  background: #fafbfc;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+.recipe-step h4 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--primary-color);
+  font-size: 17px;
+}
+.recipe-step ol {
+  margin: 0;
+  padding-left: 20px;
+}
+.recipe-step li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  font-size: 15px;
+}
+.recipe-step li:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================= */
+/* MEDIA QUERIES - RESPONSIVE                    */
+/* ============================================= */
+
+/* Tablets (768px - 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    padding: 24px;
+  }
+  .chips-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 14px;
+  }
+  .chip {
+    font-size: 16px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+}
+
+/* Móviles (hasta 600px) */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+  .container {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  .banner-container img {
+    max-height: 140px;
+  }
+  .tab-btn {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  .chips-grid {
+    grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+    gap: 8px;
+  }
+  .chip {
+    padding: 12px 8px;
+    font-size: 14px;
+  }
+  .category-card, .recipe-step {
+    padding: 14px;
+  }
+  .ingredient-item {
+    font-size: 14px;
+  }
+  .logo-giralda {
+    height: 18px;
+  }
+  .btn-action, .share-btn {
+    padding: 14px;
+    font-size: 15px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  p.subtitle {
+    font-size: 13px;
+  }
+  .recipe-step li {
+    font-size: 14px;
+  }
+}
+
+/* Móviles muy pequeños (hasta 360px) */
+@media (max-width: 360px) {
+  .chips-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .chip {
+    font-size: 13px;
+    padding: 10px 6px;
+  }
+  .tab-btn {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+  .banner-container img {
+    max-height: 110px;
+  }
+}
+
+/* Safe area para iPhone con notch */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: max(15px, env(safe-area-inset-left));
+    padding-right: max(15px, env(safe-area-inset-right));
+    padding-bottom: max(15px, env(safe-area-inset-bottom));
+  }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- BANNER CORPORATIVO -->
+  <div class="banner-container">
+    <img src="banner.png" alt="Memorias de Navidad - La Giralda">
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" id="tab-btn-select" onclick="switchTab('tab-select', this)">1. Seleccionar Cantidad</button>
+    <button class="tab-btn" id="tab-btn-calc" disabled onclick="switchTab('tab-calc', this)">2. Ingredientes</button>
+    <button class="tab-btn" id="tab-btn-steps" disabled onclick="switchTab('tab-steps', this)">3. Paso a Paso</button>
+  </div>
+
+  <!-- Pestaña 1: Selección -->
+  <div id="tab-select" class="tab-content active">
+    <h2>¿Cuántas hallacas deseas preparar?</h2>
+    <p class="subtitle">Selecciona el rango de unidades para calcular automáticamente los ingredientes e instrucciones exactas.</p>
+    <div class="chips-grid" id="chips-container"></div>
+    <button class="btn-action" id="btn-confirm" disabled onclick="confirmSelection()">Calcular Ingredientes</button>
+  </div>
+
+  <!-- Pestaña 2: Ingredientes -->
+  <div id="tab-calc" class="tab-content">
+    <h2 id="calc-title">Ingredientes</h2>
+    <div id="recipe-results"></div>
+  </div>
+
+  <!-- Pestaña 3: Preparación -->
+  <div id="tab-steps" class="tab-content">
+    <h2 id="steps-title">Receta y Preparación</h2>
+    <div class="recipe-step">
+      <h4>🫒 Preparación del Guiso</h4>
+      <ol>
+        <li>En una olla grande, añade la manteca, los ajos triturados, la cebolla, el pimentón, el ají dulce, el ajo porro y el cebollín. Cocina hasta que estén transparentes.</li>
+        <li>Agrega la carne de res y de cerdo. Cocina por 15 minutos a fuego bajo. Añade el pollo en cubos.</li>
+        <li>Incorpora las alcaparras La Giralda picadas, Encurtidos La Giralda picadito, el vino dulce, Salsa Inglesa La Giralda, el papelón, el comino, la sal y la pimienta. Vierte el agua, tapa y deja cocinar a fuego lento durante 1 hora hasta que las carnes estén muy suaves.</li>
+        <li>Agrega la harina de maíz disuelta en caldo para espesar el guiso. Debe quedar jugoso pero espeso, no líquido. Apaga y deja enfriar.</li>
+      </ol>
+    </div>
+    <div class="recipe-step">
+      <h4>🫓 Preparación de la Masa</h4>
+      <ol>
+        <li>Calienta la manteca o el aceite en una sartén pequeña con los granos de onoto. Cuando el aceite tome un color rojo intenso, retíralo del fuego y cuélalo para eliminar las semillas.</li>
+        <li>En un bol grande, vierte parte del caldo de guiso tibio, agrega la mitad del aceite onotado y la sal.</li>
+        <li>Agrega la harina de maíz poco a poco, amasando constantemente hasta obtener una masa suave, brillante, homogénea y moldeable. Divide la masa en esferas de igual tamaño.</li>
+      </ol>
+    </div>
+    <div class="recipe-step">
+      <h4>🌿 Ensamblaje de la Hallaca</h4>
+      <ol>
+        <li>Limpia muy bien las hojas con un paño húmedo y sécalas.</li>
+        <li>Toma una hoja grande (30x30 cm aprox.) y engrasa el centro con un poquito del aceite onotado restante.</li>
+        <li>Coloca una bola de masa en el centro y, con los dedos húmedos o usando un plástico protector, extiéndela firmemente en forma circular hasta que quede muy delgada.</li>
+        <li>Coloca en el centro una cucharada colmada de guiso frío.</li>
+        <li>Decora encima con: 1 aro de cebolla, 1 tira de pimentón, 2 aceitunas La Giralda, 4 pasitas y 2 alcaparras La Giralda.</li>
+        <li>Une los dos extremos de la hoja hacia arriba, doblando los bordes juntos para sellar la masa sobre el guiso. Luego, dobla las otras dos puntas hacia adentro formando un paquete rectangular.</li>
+        <li>Envuelve este paquete con una segunda hoja más pequeña (camisa) orientada en sentido contrario para evitar filtraciones. Puedes colocar una tira delgada de hoja (faja) alrededor del centro.</li>
+        <li>Amarra con el hilo pabilo cruzándolo tres veces en dirección horizontal y tres en vertical, apretando con suavidad. Termina con un nudo firme.</li>
+      </ol>
+    </div>
+    <div class="recipe-step">
+      <h4>🔥 Cocción</h4>
+      <ol>
+        <li>Hierve abundante agua con un toque de sal en una olla grande.</li>
+        <li>Introduce las hallacas asegurándote de que queden completamente sumergidas.</li>
+        <li>Cocina tapado a fuego medio-alto durante 1 hora.</li>
+        <li>Retíralas, escúrrelas verticalmente y déjalas reposar al menos 20 minutos antes de cortar el pabilo y servir.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<script>
+const recipesData = {
+  "10-15": {
+    guiso: [
+      { name: "1 cucharada de manteca de cerdo" },
+      { name: "4 dientes de ajo finamente picado" },
+      { name: "1 cebolla grande finamente picada" },
+      { name: "1 pimentón rojo finamente picado" },
+      { name: "4 ajíes dulces finamente picado" },
+      { name: "1 tallo de ajo porro finamente picado" },
+      { name: "2 tallos de cebollín finamente picado" },
+      { name: "300 gramos de pulpa de res cortado en cubos pequeños" },
+      { name: "300 gramos de carne de cerdo (magra) cortado en cubos pequeños" },
+      { name: "300 gramos de pechuga de gallina o pollo cortado en cubos pequeños" },
+      { name: "2 cucharadas de alcaparras La Giralda picaditas", brand: true },
+      { name: "½ taza de Encurtidos La Giralda picadito", brand: true },
+      { name: "½ taza de vino tinto dulce" },
+      { name: "¼ taza de Salsa Inglesa La Giralda", brand: true },
+      { name: "1 cucharada de papelón rallado, sal, pimienta y comino al gusto" },
+      { name: "6 tazas de agua" },
+      { name: "2 cucharadas de harina de maíz para disolver en un poquito de caldo del guiso" }
+    ],
+    masa: [
+      { name: "½ taza de manteca de cerdo" },
+      { name: "2 cucharadas de onoto La Giralda en grano", brand: true },
+      { name: "4 tazas de caldo del guiso" },
+      { name: "½ cucharadita de sal" },
+      { name: "500 gramos de harina de maíz amarilla" }
+    ],
+    adorno: [
+      { name: "1 cebolla cortada en aros finos" },
+      { name: "1 pimentón rojo cortado en tiras delgadas" },
+      { name: "24 aceitunas rellenas La Giralda (aprox. 1 o 2 por hallaca)", brand: true },
+      { name: "¼ de taza de pasitas negras (aprox. 3 o 4 por hallaca)" }
+    ],
+    envoltura: [
+      { name: "1.5 kg de hojas de cambur para hallacas" },
+      { name: "1 rollo de pabilo" }
+    ]
+  },
+  "20-25": {
+    guiso: [
+      { name: "2 cucharadas de manteca de cerdo" },
+      { name: "8 dientes de ajo finamente picado" },
+      { name: "3 cebollas grandes finamente picadas" },
+      { name: "2 pimentones rojos finamente picados" },
+      { name: "8 ajíes dulces finamente picados" },
+      { name: "1 tallo grande de ajo porro finamente picado" },
+      { name: "4 tallos de cebollín finamente picados" },
+      { name: "700 gramos de pulpa de res cortado en cubos pequeños" },
+      { name: "700 gramos de carne de cerdo (magra) cortado en cubos pequeños" },
+      { name: "700 gramos de pechuga de gallina o pollo cortado en cubos pequeños" },
+      { name: "4 cucharadas de alcaparras La Giralda picaditas", brand: true },
+      { name: "½ taza de Encurtidos La Giralda picadito", brand: true },
+      { name: "1 taza de vino tinto dulce" },
+      { name: "¼ taza de Salsa Inglesa La Giralda", brand: true },
+      { name: "2 cucharadas de papelón rallado, sal, pimienta y comino al gusto" },
+      { name: "10 tazas de agua" },
+      { name: "4 cucharadas de harina de maíz para disolver en un poquito de caldo del guiso" }
+    ],
+    masa: [
+      { name: "1 taza de manteca de cerdo" },
+      { name: "4 cucharadas de onoto La Giralda en grano", brand: true },
+      { name: "6 a 8 tazas de caldo del guiso" },
+      { name: "1 cucharadita de sal" },
+      { name: "1 kilo de harina de maíz amarilla" }
+    ],
+    adorno: [
+      { name: "2 cebollas cortadas en aros finos" },
+      { name: "2 pimentones rojos cortados en tiras delgadas" },
+      { name: "1 frasco de aceitunas rellenas La Giralda (aprox. 1 o 2 por hallaca)", brand: true },
+      { name: "¾ de taza de pasitas negras (aprox. 3 o 4 por hallaca)" }
+    ],
+    envoltura: [
+      { name: "3.5 kg de hojas de cambur para hallacas" },
+      { name: "1 a 2 rollos de pabilo" }
+    ]
+  },
+  "30-35": {
+    guiso: [
+      { name: "2 cucharadas de manteca de cerdo" },
+      { name: "12 dientes de ajo finamente picado" },
+      { name: "4 cebollas grandes finamente picadas" },
+      { name: "3 pimentones rojos finamente picados" },
+      { name: "12 ajíes dulces finamente picados" },
+      { name: "2 tallos de ajo porro finamente picado" },
+      { name: "6 tallos de cebollín finamente picados" },
+      { name: "1 kilo de pulpa de res cortado en cubos pequeños" },
+      { name: "1 kilo de carne de cerdo (magra) cortado en cubos pequeños" },
+      { name: "1 kilo de gallina o pollo cortado en cubos pequeños" },
+      { name: "6 cucharadas de alcaparras La Giralda picaditas", brand: true },
+      { name: "1 taza de Encurtidos La Giralda picadito", brand: true },
+      { name: "1.5 tazas de vino tinto dulce" },
+      { name: "¼ taza de Salsa Inglesa La Giralda", brand: true },
+      { name: "3 cucharadas de papelón rallado, sal, pimienta y comino al gusto" },
+      { name: "10 a 12 tazas de agua" },
+      { name: "6 cucharadas de harina de maíz para disolver en un poquito de caldo del guiso" }
+    ],
+    masa: [
+      { name: "1.5 taza de manteca de cerdo" },
+      { name: "6 cucharadas de onoto La Giralda en grano", brand: true },
+      { name: "8 a 10 tazas de caldo del guiso" },
+      { name: "4 cucharaditas de sal" },
+      { name: "1.5 kilos de harina de maíz precocida amarilla" }
+    ],
+    adorno: [
+      { name: "4 cebollas medianas cortadas en aros finos" },
+      { name: "4 pimentones rojos pequeños cortados en tiras delgadas" },
+      { name: "1 frasco de aceitunas rellenas La Giralda (aprox. 1 o 2 por hallaca)", brand: true },
+      { name: "1 taza de pasitas negras (aprox. 3 o 4 por hallaca)" }
+    ],
+    envoltura: [
+      { name: "4.5 kg de hojas de cambur para hallacas" },
+      { name: "2 rollos de pabilo" }
+    ]
+  },
+  "40-45": {
+    guiso: [
+      { name: "2 cucharadas de manteca de cerdo" },
+      { name: "15 dientes de ajo finamente picado" },
+      { name: "5 cebollas finamente picadas" },
+      { name: "4 pimentones rojos finamente picados" },
+      { name: "16 ajíes dulces finamente picados" },
+      { name: "3 tallos de ajo porro finamente picado" },
+      { name: "8 tallos de cebollín finamente picados" },
+      { name: "1.3 kilo de pulpa de res cortado en cubos pequeños" },
+      { name: "1.3 kilo de carne de cerdo (magra) cortado en cubos pequeños" },
+      { name: "1.3 kilo de gallina o pollo cortado en cubos pequeños" },
+      { name: "¼ taza de alcaparras La Giralda picaditas", brand: true },
+      { name: "1 taza de Encurtidos La Giralda picadito", brand: true },
+      { name: "1.5 tazas de vino tinto dulce" },
+      { name: "½ taza de Salsa Inglesa La Giralda", brand: true },
+      { name: "4 cucharadas de papelón rallado, sal, pimienta y comino al gusto" },
+      { name: "4 litros de agua" },
+      { name: "6 cucharadas de harina de maíz para disolver en un poquito de caldo del guiso" }
+    ],
+    masa: [
+      { name: "1.5 tazas de manteca de cerdo" },
+      { name: "6 cucharadas de onoto La Giralda en grano", brand: true },
+      { name: "3 litros del caldo del guiso" },
+      { name: "2 cucharaditas de sal" },
+      { name: "2 kilos de harina de maíz precocida" }
+    ],
+    adorno: [
+      { name: "5 cebollas medianas cortadas en aros finos" },
+      { name: "5 pimentones rojos pequeños cortados en tiras delgadas" },
+      { name: "1 frasco de aceitunas rellenas La Giralda (aprox. 1 o 2 por hallaca)", brand: true },
+      { name: "1.5 tazas de pasitas negras (aprox. 3 o 4 por hallaca)" }
+    ],
+    envoltura: [
+      { name: "5 kg de hojas de cambur para hallacas" },
+      { name: "2 a 3 rollos de pabilo" }
+    ]
+  },
+  "50-55": {
+    guiso: [
+      { name: "3 cucharadas de manteca de cerdo" },
+      { name: "20 dientes de ajo finamente picado" },
+      { name: "6 cebollas finamente picadas" },
+      { name: "5 pimentones rojos finamente picados" },
+      { name: "20 ajíes dulces finamente picados" },
+      { name: "4 tallos grandes de ajo porro finamente picado" },
+      { name: "10 tallos de cebollín finamente picados" },
+      { name: "1.6 kilo de pulpa de res cortado en cubos pequeños" },
+      { name: "1.6 kilo de carne de cerdo (magra) cortado en cubos pequeños" },
+      { name: "1.6 kilo de gallina o pollo cortado en cubos pequeños" },
+      { name: "¼ taza de alcaparras La Giralda picaditas", brand: true },
+      { name: "1 taza de Encurtidos La Giralda picadito", brand: true },
+      { name: "2 tazas de vino tinto dulce" },
+      { name: "½ taza de Salsa Inglesa La Giralda", brand: true },
+      { name: "5 cucharadas de papelón rallado, sal, pimienta y comino al gusto" },
+      { name: "5 litros de agua" },
+      { name: "6 cucharadas de harina de maíz para disolver en un poquito de caldo del guiso" }
+    ],
+    masa: [
+      { name: "2 tazas de manteca de cerdo" },
+      { name: "6 cucharadas de onoto La Giralda en grano", brand: true },
+      { name: "3.5 a 4 litros del caldo del guiso" },
+      { name: "2 cucharaditas de sal" },
+      { name: "2.5 kilos de harina de maíz" }
+    ],
+    adorno: [
+      { name: "6 cebollas medianas cortadas en aros finos" },
+      { name: "6 pimentones rojos pequeños cortados en tiras delgadas" },
+      { name: "1 frasco de aceitunas rellenas La Giralda 250g (aprox. 1 o 2 por hallaca)", brand: true },
+      { name: "1.5 tazas de pasitas negras (aprox. 3 o 4 por hallaca)" }
+    ],
+    envoltura: [
+      { name: "7 kg de hojas de cambur para hallacas" },
+      { name: "3 rollos de pabilo" }
+    ]
+  },
+  "60-65": {
+    guiso: [
+      { name: "3 cucharadas de manteca de cerdo" },
+      { name: "¾ taza de ajo finamente picado" },
+      { name: "7 cebollas finamente picadas" },
+      { name: "6 pimentones rojos finamente picados" },
+      { name: "¾ taza de ajíes dulces finamente picados" },
+      { name: "5 tallos de ajo porro finamente picado" },
+      { name: "12 tallos de cebollín finamente picados" },
+      { name: "2 kilos de pulpa de res cortado en cubos pequeños" },
+      { name: "2 kilos de carne de cerdo (magra) cortado en cubos pequeños" },
+      { name: "2 kilos de gallina o pollo cortado en cubos pequeños" },
+      { name: "¾ taza de alcaparras La Giralda picaditas", brand: true },
+      { name: "1 frasco de Encurtidos La Giralda picadito", brand: true },
+      { name: "2 tazas de vino tinto dulce" },
+      { name: "⅔ taza de Salsa Inglesa La Giralda", brand: true },
+      { name: "6 cucharadas de papelón rallado, sal, pimienta y comino al gusto" },
+      { name: "6 litros de agua" },
+      { name: "12 cucharadas de harina de maíz para disolver en caldo del guiso" }
+    ],
+    masa: [
+      { name: "2 tazas de manteca de cerdo" },
+      { name: "6 cucharadas de onoto La Giralda en grano", brand: true },
+      { name: "5 litros del caldo del guiso" },
+      { name: "1 cucharada de sal" },
+      { name: "3 kilos de harina de maíz amarilla" }
+    ],
+    adorno: [
+      { name: "7 cebollas medianas cortadas en aros finos" },
+      { name: "7 pimentones rojos pequeños cortados en tiras delgadas" },
+      { name: "1 frasco de aceitunas rellenas La Giralda 250g (aprox. 1 o 2 por hallaca)", brand: true },
+      { name: "1.5 tazas de pasitas negras (aprox. 3 o 4 por hallaca)" }
+    ],
+    envoltura: [
+      { name: "8 a 9 kg de hojas de cambur para hallacas" },
+      { name: "4 rollos de pabilo" }
+    ]
+  },
+  "70-75": {
+    guiso: [
+      { name: "3 cucharadas de manteca de cerdo" },
+      { name: "¾ taza de ajo finamente picado" },
+      { name: "7 cebollas finamente picadas" },
+      { name: "6 pimentones rojos finamente picados" },
+      { name: "¾ taza de ajíes dulces finamente picados" },
+      { name: "5 tallos de ajo porro finamente picado" },
+      { name: "12 tallos de cebollín finamente picados" },
+      { name: "2.3 kilos de pulpa de res cortado en cubos pequeños" },
+      { name: "2.3 kilos de carne de cerdo (magra) cortado en cubos pequeños" },
+      { name: "2.3 kilos de gallina o pollo cortado en cubos pequeños" },
+      { name: "¾ taza de alcaparras La Giralda picaditas", brand: true },
+      { name: "1 frasco de Encurtidos La Giralda picadito", brand: true },
+      { name: "2 tazas de vino tinto dulce" },
+      { name: "⅔ taza de Salsa Inglesa La Giralda", brand: true },
+      { name: "7 cucharadas de papelón rallado, sal, pimienta y comino al gusto" },
+      { name: "7 litros de agua" },
+      { name: "12 cucharadas de harina de maíz para disolver en caldo del guiso" }
+    ],
+    masa: [
+      { name: "2 tazas de manteca de cerdo" },
+      { name: "6 cucharadas de onoto La Giralda en grano", brand: true },
+      { name: "6 litros del caldo del guiso" },
+      { name: "1.5 cucharadas de sal" },
+      { name: "3.5 kilos de harina de maíz amarilla" }
+    ],
+    adorno: [
+      { name: "8 cebollas medianas cortadas en aros finos" },
+      { name: "8 pimentones rojos pequeños cortados en tiras delgadas" },
+      { name: "1 frasco de aceitunas rellenas La Giralda 500g (aprox. 1 o 2 por hallaca)", brand: true },
+      { name: "2 tazas de pasitas negras (aprox. 3 o 4 por hallaca)" }
+    ],
+    envoltura: [
+      { name: "10 a 12 kg de hojas de cambur para hallacas" },
+      { name: "5 rollos de pabilo" }
+    ]
+  },
+  "80-85": {
+    guiso: [
+      { name: "4 cucharadas de manteca de cerdo" },
+      { name: "1 taza de ajo finamente picado" },
+      { name: "1 kilo de cebollas finamente picadas" },
+      { name: "1.5 kilos de pimentones rojos finamente picados" },
+      { name: "1 taza de ajíes dulces finamente picados" },
+      { name: "1.5 kilos de ajo porro finamente picado" },
+      { name: "1 kilo de tallos de cebollín finamente picados" },
+      { name: "2.6 kilos de pulpa de res cortado en cubos pequeños" },
+      { name: "2.6 kilos de carne de cerdo (magra) cortado en cubos pequeños" },
+      { name: "2.6 kilos de gallina o pollo cortado en cubos pequeños" },
+      { name: "1 taza de alcaparras La Giralda picaditas", brand: true },
+      { name: "1 frasco de Encurtidos La Giralda picadito", brand: true },
+      { name: "2 tazas de vino tinto dulce" },
+      { name: "⅔ taza de Salsa Inglesa La Giralda", brand: true },
+      { name: "100 gramos de papelón rallado, sal, pimienta y comino al gusto" },
+      { name: "9 litros de agua" },
+      { name: "½ taza de harina de maíz para disolver en caldo del guiso" }
+    ],
+    masa: [
+      { name: "3 tazas de manteca de cerdo" },
+      { name: "6 cucharadas de onoto La Giralda en grano", brand: true },
+      { name: "7 litros del caldo del guiso" },
+      { name: "2 cucharadas de sal" },
+      { name: "4 kilos de harina de maíz amarilla" }
+    ],
+    adorno: [
+      { name: "9 cebollas medianas cortadas en aros finos" },
+      { name: "9 pimentones rojos pequeños cortados en tiras delgadas" },
+      { name: "1 frasco de aceitunas rellenas La Giralda 500g (aprox. 1 o 2 por hallaca)", brand: true },
+      { name: "2 tazas de pasitas negras (aprox. 3 o 4 por hallaca)" }
+    ],
+    envoltura: [
+      { name: "12 a 14 kg de hojas de cambur para hallacas" },
+      { name: "5 a 6 rollos de pabilo" }
+    ]
+  },
+  "90-100": {
+    guiso: [
+      { name: "¾ taza de manteca de cerdo" },
+      { name: "1.5 taza de ajo finamente picado" },
+      { name: "1.5 kilos de cebollas finamente picadas" },
+      { name: "2 kilos de pimentones rojos finamente picados" },
+      { name: "1.5 taza de ajíes dulces finamente picados" },
+      { name: "1.5 kilos de ajo porro finamente picado" },
+      { name: "1 kilo de tallos de cebollín finamente picados" },
+      { name: "3 kilos de pulpa de res cortado en cubos pequeños" },
+      { name: "3 kilos de carne de cerdo (magra) cortado en cubos pequeños" },
+      { name: "3 kilos de gallina o pollo cortado en cubos pequeños" },
+      { name: "1 taza de alcaparras La Giralda picaditas", brand: true },
+      { name: "2 frascos de Encurtidos La Giralda picadito", brand: true },
+      { name: "2 tazas de vino tinto dulce" },
+      { name: "1 taza de Salsa Inglesa La Giralda", brand: true },
+      { name: "150 gramos de papelón rallado, sal, pimienta y comino al gusto" },
+      { name: "9 litros de agua" },
+      { name: "½ taza de harina de maíz para disolver en caldo del guiso" }
+    ],
+    masa: [
+      { name: "4 tazas de manteca de cerdo" },
+      { name: "9 cucharadas de onoto La Giralda en grano", brand: true },
+      { name: "7 litros del caldo del guiso" },
+      { name: "4 cucharadas de sal" },
+      { name: "6 kilos de harina de maíz amarilla" }
+    ],
+    adorno: [
+      { name: "9 cebollas medianas cortadas en aros finos" },
+      { name: "9 pimentones rojos pequeños cortados en tiras delgadas" },
+      { name: "1 frasco de aceitunas rellenas La Giralda 500g (aprox. 1 o 2 por hallaca)", brand: true },
+      { name: "2 tazas de pasitas negras (aprox. 3 o 4 por hallaca)" }
+    ],
+    envoltura: [
+      { name: "15 kg de hojas de cambur para hallacas" },
+      { name: "6 a 8 rollos de pabilo" }
+    ]
+  }
+};
+
+const ranges = ["10-15", "20-25", "30-35", "40-45", "50-55", "60-65", "70-75", "80-85", "90-100"];
+let selectedRange = null;
+
+function initChips() {
+  const container = document.getElementById('chips-container');
+  if (!container) return;
+  container.innerHTML = '';
+  ranges.forEach((r) => {
+    const chip = document.createElement('div');
+    chip.className = 'chip';
+    chip.innerText = `${r} Unds`;
+    chip.setAttribute('role', 'button');
+    chip.setAttribute('tabindex', '0');
+    chip.onclick = () => {
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      selectedRange = r;
+      document.getElementById('btn-confirm').disabled = false;
+    };
+    container.appendChild(chip);
+  });
+}
+
+function switchTab(tabId, btn) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function confirmSelection() {
+  if (!selectedRange) return;
+
+  const utmSource   = sessionStorage.getItem('utm_source')   || 'qr';
+  const utmMedium   = sessionStorage.getItem('utm_medium')   || 'fisico';
+  const utmCampaign = sessionStorage.getItem('utm_campaign') || 'navidad2026';
+  const utmContent  = sessionStorage.getItem('utm_content')  || 'general';
+
+  try {
+    if (typeof gtag === 'function') {
+      gtag('event', 'select_hallacas_range', {
+        'event_category': 'Calculadora',
+        'event_label': selectedRange + ' Hallacas',
+        'value_range': selectedRange,
+        'utm_source': utmSource,
+        'utm_medium': utmMedium,
+        'utm_campaign': utmCampaign,
+        'utm_content': utmContent,
+        'value': 1
+      });
+    }
+  } catch (e) { console.warn('GA Error:', e); }
+
+  try {
+    if (typeof fbq === 'function') {
+      fbq('trackCustom', 'SeleccionRangoHallacas', {
+        rango: selectedRange,
+        source: utmSource,
+        campaign: utmCampaign
+      });
+    }
+  } catch (e) { console.warn('Pixel Error:', e); }
+
+  document.getElementById('tab-btn-calc').disabled = false;
+  document.getElementById('tab-btn-steps').disabled = false;
+  document.getElementById('calc-title').innerText = `Ingredientes para ${selectedRange} Hallacas`;
+  document.getElementById('steps-title').innerText = `Receta para ${selectedRange} Hallacas`;
+  renderRecipe();
+  switchTab('tab-calc', document.getElementById('tab-btn-calc'));
+}
+
+function renderRecipe() {
+  const data = recipesData[selectedRange];
+  const resultsContainer = document.getElementById('recipe-results');
+  resultsContainer.innerHTML = '';
+
+  const categories = [
+    { key: 'guiso', title: '🫒 Guiso' },
+    { key: 'masa', title: '🫓 Masa' },
+    { key: 'adorno', title: '🧅 Adorno' },
+    { key: 'envoltura', title: '🍃 Envoltura' }
+  ];
+
+  categories.forEach(cat => {
+    if (!data[cat.key]) return;
+    let card = document.createElement('div');
+    card.className = 'category-card';
+    let html = `<div class="category-header">${cat.title}</div><ul class="ingredient-list">`;
+    data[cat.key].forEach(item => {
+      const badge = item.brand ? `<img src="logo.png" alt="La Giralda" class="logo-giralda">` : '';
+      html += `<li class="ingredient-item"><span>${item.name}</span>${badge}</li>`;
+    });
+    html += `</ul>`;
+    card.innerHTML = html;
+    resultsContainer.appendChild(card);
+  });
+
+  const shareBtnIngredients = document.createElement('button');
+  shareBtnIngredients.className = 'share-btn';
+  shareBtnIngredients.innerHTML = '💬 Compartir Lista de Ingredientes por WhatsApp';
+  shareBtnIngredients.onclick = shareWhatsAppIngredients;
+  resultsContainer.appendChild(shareBtnIngredients);
+
+  const tabSteps = document.getElementById('tab-steps');
+  const existingRecipeBtn = tabSteps.querySelector('.share-recipe-btn');
+  if (existingRecipeBtn) existingRecipeBtn.remove();
+
+  const shareBtnRecipe = document.createElement('button');
+  shareBtnRecipe.className = 'share-btn share-recipe-btn';
+  shareBtnRecipe.style.marginTop = '20px';
+  shareBtnRecipe.innerHTML = '💬 Compartir Receta Completa por WhatsApp';
+  shareBtnRecipe.onclick = shareWhatsAppRecipe;
+  tabSteps.appendChild(shareBtnRecipe);
+}
+
+function shareWhatsAppIngredients() {
+  if (!selectedRange) return;
+  const data = recipesData[selectedRange];
+  let text = `🛒 *HALLACAS VENEZOLANAS LA GIRALDA (${selectedRange} UNDS)* 🫔%0A%0A`;
+  text += `*INGREDIENTES*%0A%0A`;
+  const categories = [
+    { key: 'guiso', title: 'GUISO' },
+    { key: 'masa', title: 'MASA' },
+    { key: 'adorno', title: 'ADORNO' },
+    { key: 'envoltura', title: 'ENVOLTURA' }
+  ];
+  categories.forEach(cat => {
+    if (data[cat.key]) {
+      text += `*${cat.title}*%0A`;
+      data[cat.key].forEach(i => { text += `- ${i.name}%0A`; });
+      text += `%0A`;
+    }
+  });
+  window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+}
+
+function shareWhatsAppRecipe() {
+  if (!selectedRange) return;
+  const data = recipesData[selectedRange];
+  let text = `🫔 *HALLACAS VENEZOLANAS LA GIRALDA (${selectedRange} UNDS)* 🫔%0A%0A`;
+  text += `*INGREDIENTES*%0A%0A`;
+  const categories = [
+    { key: 'guiso', title: 'GUISO' },
+    { key: 'masa', title: 'MASA' },
+    { key: 'adorno', title: 'ADORNO' },
+    { key: 'envoltura', title: 'ENVOLTURA' }
+  ];
+  categories.forEach(cat => {
+    if (data[cat.key]) {
+      text += `*${cat.title}*%0A`;
+      data[cat.key].forEach(i => { text += `- ${i.name}%0A`; });
+      text += `%0A`;
+    }
+  });
+  text += `*PREPARACIÓN*%0A%0A`;
+  text += `*Guiso:*%0A1. En una olla grande, añade la manteca, los ajos triturados, la cebolla, el pimentón, el ají dulce, el ajo porro y el cebollín. Cocina hasta que estén transparentes.%0A2. Agrega la carne de res y de cerdo. Cocina por 15 minutos a fuego bajo. Añade el pollo en cubos.%0A3. Incorpora las alcaparras La Giralda picadas, Encurtidos La Giralda picadito, el vino dulce, Salsa Inglesa La Giralda, el papelón, el comino, la sal y la pimienta. Vierte el agua, tapa y deja cocinar a fuego lento durante 1 hora hasta que las carnes estén muy suaves.%0A4. Agrega la harina de maíz disuelta en caldo para espesar el guiso. Debe quedar jugoso pero espeso, no líquido. Apaga y deja enfriar.%0A%0A`;
+  text += `*Masa:*%0A1. Calienta la manteca o el aceite en una sartén pequeña con los granos de onoto. Cuando el aceite tome un color rojo intenso, retíralo del fuego y cuélalo para eliminar las semillas.%0A2. En un bol grande, vierte parte del caldo de guiso tibio, agrega la mitad del aceite onotado y la sal.%0A3. Agrega la harina de maíz poco a poco, amasando constantemente hasta obtener una masa suave, brillante, homogénea y moldeable. Divide la masa en ${selectedRange} esferas de igual tamaño.%0A%0A`;
+  text += `*Ensamblaje:*%0A1. Limpia muy bien las hojas con un paño húmedo y sécalas.%0A2. Toma una hoja grande (30x30 cm aprox.) y engrasa el centro con un poquito del aceite onotado restante.%0A3. Coloca una bola de masa en el centro y, con los dedos húmedos o usando un plástico protector, extiéndela firmemente en forma circular hasta que quede muy delgada.%0A4. Coloca en el centro una cucharada colmada de guiso frío.%0A5. Decora encima con: 1 aro de cebolla, 1 tira de pimentón, 2 aceitunas La Giralda, 4 pasitas y 2 alcaparras La Giralda.%0A6. Une los dos extremos de la hoja hacia arriba, doblando los bordes juntos para sellar la masa sobre el guiso. Luego, dobla las otras dos puntas hacia adentro formando un paquete rectangular.%0A7. Envuelve este paquete con una segunda hoja más pequeña (camisa) orientada en sentido contrario para evitar filtraciones. Puedes colocar una tira delgada de hoja (faja) alrededor del centro.%0A8. Amarra con el hilo pabilo cruzándolo tres veces en dirección horizontal y tres en vertical, apretando con suavidad. Termina con un nudo firme.%0A%0A`;
+  text += `*Cocción:*%0A1. Hierve abundante agua con un toque de sal en una olla grande.%0A2. Introduce las hallacas asegurándote de que queden completamente sumergidas.%0A3. Cocina tapado a fuego medio-alto durante 1 hora.%0A4. Retíralas, escúrrelas verticalmente y déjalas reposar al menos 20 minutos antes de cortar el pabilo y servir.`;
+  window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initChips();
+});
+</script>
+</body>
+</html>
