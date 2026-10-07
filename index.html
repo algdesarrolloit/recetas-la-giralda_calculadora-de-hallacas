@@ -11,34 +11,17 @@
 
 <!-- ============================================= -->
 <!-- GOOGLE ANALYTICS 4 (GA4)                      -->
-<!-- Reemplaza G-XXXXXXXXXX con tu ID real         -->
+<!-- ID: G-QNW797ZKKY                              -->
 <!-- ============================================= -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QNW797ZKKY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX', {
+  gtag('config', 'G-QNW797ZKKY', {
     page_title: 'Recetario Hallacas La Giralda',
     page_location: window.location.href
   });
-</script>
-
-<!-- ============================================= -->
-<!-- META PIXEL (Facebook / Instagram Ads)         -->
-<!-- Reemplaza PIXEL_ID con tu ID real             -->
-<!-- ============================================= -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', 'PIXEL_ID');
-  fbq('track', 'PageView');
 </script>
 
 <!-- ============================================= -->
@@ -70,17 +53,6 @@
         });
       }
     } catch(e) { console.warn('GA QR Error:', e); }
-
-    try {
-      if (typeof fbq === 'function') {
-        fbq('trackCustom', 'QRScan', {
-          source: utmSource,
-          medium: utmMedium,
-          campaign: utmCampaign,
-          content: utmContent
-        });
-      }
-    } catch(e) { console.warn('Pixel QR Error:', e); }
   });
 </script>
 
@@ -484,7 +456,7 @@ p.subtitle {
   <div id="tab-steps" class="tab-content">
     <h2 id="steps-title">Receta y Preparación</h2>
     <div class="recipe-step">
-      <h4>🫒 Preparación del Guiso</h4>
+      <h4> Preparación del Guiso</h4>
       <ol>
         <li>En una olla grande, añade la manteca, los ajos triturados, la cebolla, el pimentón, el ají dulce, el ajo porro y el cebollín. Cocina hasta que estén transparentes.</li>
         <li>Agrega la carne de res y de cerdo. Cocina por 15 minutos a fuego bajo. Añade el pollo en cubos.</li>
@@ -493,7 +465,7 @@ p.subtitle {
       </ol>
     </div>
     <div class="recipe-step">
-      <h4>🫓 Preparación de la Masa</h4>
+      <h4> Preparación de la Masa</h4>
       <ol>
         <li>Calienta la manteca o el aceite en una sartén pequeña con los granos de onoto. Cuando el aceite tome un color rojo intenso, retíralo del fuego y cuélalo para eliminar las semillas.</li>
         <li>En un bol grande, vierte parte del caldo de guiso tibio, agrega la mitad del aceite onotado y la sal.</li>
@@ -910,6 +882,7 @@ function confirmSelection() {
   const utmCampaign = sessionStorage.getItem('utm_campaign') || 'navidad2026';
   const utmContent  = sessionStorage.getItem('utm_content')  || 'general';
 
+  // Evento GA4: Rango de hallacas consultado
   try {
     if (typeof gtag === 'function') {
       gtag('event', 'select_hallacas_range', {
@@ -924,16 +897,6 @@ function confirmSelection() {
       });
     }
   } catch (e) { console.warn('GA Error:', e); }
-
-  try {
-    if (typeof fbq === 'function') {
-      fbq('trackCustom', 'SeleccionRangoHallacas', {
-        rango: selectedRange,
-        source: utmSource,
-        campaign: utmCampaign
-      });
-    }
-  } catch (e) { console.warn('Pixel Error:', e); }
 
   document.getElementById('tab-btn-calc').disabled = false;
   document.getElementById('tab-btn-steps').disabled = false;
@@ -990,7 +953,7 @@ function renderRecipe() {
 function shareWhatsAppIngredients() {
   if (!selectedRange) return;
   const data = recipesData[selectedRange];
-  let text = `🛒 *HALLACAS VENEZOLANAS LA GIRALDA (${selectedRange} UNDS)* 🫔%0A%0A`;
+  let text = ` *HALLACAS VENEZOLANAS LA GIRALDA (${selectedRange} UNDS)* %0A%0A`;
   text += `*INGREDIENTES*%0A%0A`;
   const categories = [
     { key: 'guiso', title: 'GUISO' },
