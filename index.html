@@ -973,7 +973,7 @@ function shareWhatsAppIngredients() {
   ];
   categories.forEach(cat => {
     if (data[cat.key]) {
-      text += `*${cat.title}*%0A`;
+      text += `*${cat.title}*%0A%0A`;
       data[cat.key].forEach(i => { text += `• ${i.name}%0A`; });
       text += `%0A`;
     }
