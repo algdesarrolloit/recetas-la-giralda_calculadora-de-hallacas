@@ -277,7 +277,7 @@ p.subtitle {
   vertical-align: middle;
 }
 
-/* Icono de hallaca para Envoltura */
+/* Icono de hallaca (para Envoltura y Ensamblaje) */
 .icono-hallaca {
   height: 22px;
   width: auto;
@@ -924,7 +924,7 @@ function renderRecipe() {
   const categories = [
     { key: 'guiso', title: '🫒 Guiso' },
     { key: 'masa', title: '🫓 Masa' },
-    { key: 'adorno', title: '🧅 Adorno' },
+    { key: 'adorno', title: ' Adorno' },
     { key: 'envoltura', title: '<img src="hallaca.png" alt="Hallaca" class="icono-hallaca"> Envoltura' }
   ];
 
@@ -944,7 +944,7 @@ function renderRecipe() {
 
   const shareBtnIngredients = document.createElement('button');
   shareBtnIngredients.className = 'share-btn';
-  shareBtnIngredients.innerHTML = ' Compartir Lista de Ingredientes por WhatsApp';
+  shareBtnIngredients.innerHTML = '🫒 Compartir Lista de Ingredientes por WhatsApp';
   shareBtnIngredients.onclick = shareWhatsAppIngredients;
   resultsContainer.appendChild(shareBtnIngredients);
 
@@ -966,30 +966,29 @@ function shareWhatsAppIngredients() {
   let text = `🫒 *HALLACAS VENEZOLANAS LA GIRALDA (${selectedRange} UNDS)* 🫒%0A%0A`;
   text += `*INGREDIENTES*%0A%0A`;
   const categories = [
-    { key: 'guiso', title: 'GUISO' },
-    { key: 'masa', title: 'MASA' },
-    { key: 'adorno', title: 'ADORNO' },
-    { key: 'envoltura', title: 'ENVOLTURA' }
+    { key: 'guiso', title: '🫒 Guiso' },
+    { key: 'masa', title: '🫓 Masa' },
+    { key: 'adorno', title: '🧅 Adorno' },
+    { key: 'envoltura', title: '🌿 Envoltura' }
   ];
   categories.forEach(cat => {
     if (data[cat.key]) {
       text += `*${cat.title}*%0A`;
-      data[cat.key].forEach(i => { text += `- ${i.name}%0A`; });
+      data[cat.key].forEach(i => { text += `• ${i.name}%0A`; });
       text += `%0A`;
     }
   });
   window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
 }
 
-// ✅ AJUSTE APLICADO: Solo envía los pasos de preparación, NO la lista de ingredientes
 function shareWhatsAppRecipe() {
   if (!selectedRange) return;
   let text = `🫒 *HALLACAS VENEZOLANAS LA GIRALDA (${selectedRange} UNDS)* 🫒%0A%0A`;
   text += `*PREPARACIÓN*%0A%0A`;
-  text += `*🫒 Guiso:*%0A1. En una olla grande, añade la manteca, los ajos triturados, la cebolla, el pimentón, el ají dulce, el ajo porro y el cebollín. Cocina hasta que estén transparentes.%0A2. Agrega la carne de res y de cerdo. Cocina por 15 minutos a fuego bajo. Añade el pollo en cubos.%0A3. Incorpora las alcaparras La Giralda picadas, Encurtidos La Giralda picadito, el vino dulce, Salsa Inglesa La Giralda, el papelón, el comino, la sal y la pimienta. Vierte el agua, tapa y deja cocinar a fuego lento durante 1 hora hasta que las carnes estén muy suaves.%0A4. Agrega la harina de maíz disuelta en caldo para espesar el guiso. Debe quedar jugoso pero espeso, no líquido. Apaga y deja enfriar.%0A%0A`;
-  text += `* Masa:*%0A1. Calienta la manteca o el aceite en una sartén pequeña con los granos de onoto. Cuando el aceite tome un color rojo intenso, retíralo del fuego y cuélalo para eliminar las semillas.%0A2. En un bol grande, vierte parte del caldo de guiso tibio, agrega la mitad del aceite onotado y la sal.%0A3. Agrega la harina de maíz poco a poco, amasando constantemente hasta obtener una masa suave, brillante, homogénea y moldeable. Divide la masa en ${selectedRange} esferas de igual tamaño.%0A%0A`;
-  text += `*🌿 Ensamblaje:*%0A1. Limpia muy bien las hojas con un paño húmedo y sécalas.%0A2. Toma una hoja grande (30x30 cm aprox.) y engrasa el centro con un poquito del aceite onotado restante.%0A3. Coloca una bola de masa en el centro y, con los dedos húmedos o usando un plástico protector, extiéndela firmemente en forma circular hasta que quede muy delgada.%0A4. Coloca en el centro una cucharada colmada de guiso frío.%0A5. Decora encima con: 1 aro de cebolla, 1 tira de pimentón, 2 aceitunas La Giralda, 4 pasitas y 2 alcaparras La Giralda.%0A6. Une los dos extremos de la hoja hacia arriba, doblando los bordes juntos para sellar la masa sobre el guiso. Luego, dobla las otras dos puntas hacia adentro formando un paquete rectangular.%0A7. Envuelve este paquete con una segunda hoja más pequeña (camisa) orientada en sentido contrario para evitar filtraciones. Puedes colocar una tira delgada de hoja (faja) alrededor del centro.%0A8. Amarra con el hilo pabilo cruzándolo tres veces en dirección horizontal y tres en vertical, apretando con suavidad. Termina con un nudo firme.%0A%0A`;
-  text += `*🔥 Cocción:*%0A1. Hierve abundante agua con un toque de sal en una olla grande.%0A2. Introduce las hallacas asegurándote de que queden completamente sumergidas.%0A3. Cocina tapado a fuego medio-alto durante 1 hora.%0A4. Retíralas, escúrrelas verticalmente y déjalas reposar al menos 20 minutos antes de cortar el pabilo y servir.`;
+  text += `*🫒 Guiso:*%0A%0A1. En una olla grande, añade la manteca, los ajos triturados, la cebolla, el pimentón, el ají dulce, el ajo porro y el cebollín. Cocina hasta que estén transparentes.%0A2. Agrega la carne de res y de cerdo. Cocina por 15 minutos a fuego bajo. Añade el pollo en cubos.%0A3. Incorpora las alcaparras La Giralda picadas, Encurtidos La Giralda picadito, el vino dulce, Salsa Inglesa La Giralda, el papelón, el comino, la sal y la pimienta. Vierte el agua, tapa y deja cocinar a fuego lento durante 1 hora hasta que las carnes estén muy suaves.%0A4. Agrega la harina de maíz disuelta en caldo para espesar el guiso. Debe quedar jugoso pero espeso, no líquido. Apaga y deja enfriar.%0A%0A`;
+  text += `*🫓 Masa:*%0A%0A1. Calienta la manteca o el aceite en una sartén pequeña con los granos de onoto. Cuando el aceite tome un color rojo intenso, retíralo del fuego y cuélalo para eliminar las semillas.%0A2. En un bol grande, vierte parte del caldo de guiso tibio, agrega la mitad del aceite onotado y la sal.%0A3. Agrega la harina de maíz poco a poco, amasando constantemente hasta obtener una masa suave, brillante, homogénea y moldeable. Divide la masa en ${selectedRange} esferas de igual tamaño.%0A%0A`;
+  text += `*🌿 Ensamblaje:*%0A%0A1. Limpia muy bien las hojas con un paño húmedo y sécalas.%0A2. Toma una hoja grande (30x30 cm aprox.) y engrasa el centro con un poquito del aceite onotado restante.%0A3. Coloca una bola de masa en el centro y, con los dedos húmedos o usando un plástico protector, extiéndela firmemente en forma circular hasta que quede muy delgada.%0A4. Coloca en el centro una cucharada colmada de guiso frío.%0A5. Decora encima con: 1 aro de cebolla, 1 tira de pimentón, 2 aceitunas La Giralda, 4 pasitas y 2 alcaparras La Giralda.%0A6. Une los dos extremos de la hoja hacia arriba, doblando los bordes juntos para sellar la masa sobre el guiso. Luego, dobla las otras dos puntas hacia adentro formando un paquete rectangular.%0A7. Envuelve este paquete con una segunda hoja más pequeña (camisa) orientada en sentido contrario para evitar filtraciones. Puedes colocar una tira delgada de hoja (faja) alrededor del centro.%0A8. Amarra con el hilo pabilo cruzándolo tres veces en dirección horizontal y tres en vertical, apretando con suavidad. Termina con un nudo firme.%0A%0A`;
+  text += `*🔥 Cocción:*%0A%0A1. Hierve abundante agua con un toque de sal en una olla grande.%0A2. Introduce las hallacas asegurándote de que queden completamente sumergidas.%0A3. Cocina tapado a fuego medio-alto durante 1 hora.%0A4. Retíralas, escúrrelas verticalmente y déjalas reposar al menos 20 minutos antes de cortar el pabilo y servir.`;
   window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
 }
 
